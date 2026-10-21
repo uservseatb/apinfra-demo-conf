@@ -1,0 +1,4 @@
+services:
+  demo:
+    image: uservseatb/apinfra-demo:0.1.0
+    restart: unless-stopped
