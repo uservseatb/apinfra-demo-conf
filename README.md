@@ -16,7 +16,7 @@ The repository structure follows the standard `apinfra` environment layout:
 
 ```text
 dev/
-  ├── settings.yml               # Wires the demo app to port 3000 (Plain HTTP mode)
+  ├── settings.yml               # Wires the demo app to port 3333 (Plain HTTP mode)
   └── demo/           
         └── docker-compose.yml   # Pulls the apinfra-demo Docker container
 ```
@@ -29,7 +29,7 @@ projects:
     enabled: true
     proxy:
       inbound:
-        port: 3000                           # Exposes the welcome page at http://<SERVER_IP>:3000
+        port: 3333                           # Exposes the welcome page at http://<SERVER_IP>:3333
       target:
         service-name: web                    # Matches the service in docker-compose.yml
         port: 80                             # Internal container port
@@ -39,7 +39,7 @@ projects:
 
 ## How to use your own configuration
 
-This repository is public and read-only for demo purposes. Once you verify that your server serves the default welcome page at `http://<YOUR_SERVER_IP>:3000`, you should replace this configuration with your own application configs:
+This repository is public and read-only for demo purposes. Once you verify that your server serves the default welcome page at `http://<YOUR_SERVER_IP>:3333`, you should replace this configuration with your own application configs:
 
 1. Create your own public or private Git repository.
 2. Mirror the directory structure found in the `dev/` folder here.
