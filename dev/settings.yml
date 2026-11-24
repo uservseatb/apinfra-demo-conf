@@ -3,10 +3,12 @@ version: "1.0"
 projects:
   - name: demo
     enabled: true
-    proxy:
-      inbound:
-        port: 3333
-      target:
-        service-name: demo
-        port: 80
-    config:
+    proxies:
+      - inbound:
+          port: 3333
+        target:
+          service:
+            name: demo
+            port: 80
+        config:
+          cert-issue-type: none

@@ -27,14 +27,15 @@ version: "1.0"
 projects:
   - name: demo
     enabled: true
-    proxy:
-      inbound:
-        port: 3333                           # Exposes the welcome page at http://<SERVER_IP>:3333
-      target:
-        service-name: web                    # Matches the service in docker-compose.yml
-        port: 80                             # Internal container port
-    config:
-      cert-issue-type: none                  # Port routing uses plain HTTP by default
+    proxies:
+      - inbound:
+          port: 3333                         # Exposes the welcome page at http://<SERVER_IP>:3333
+        target:
+          service:
+            name: demo                       # Matches the service in docker-compose.yml
+            port: 80                         # Internal container port
+        config:
+          cert-issue-type: none              # Port routing uses plain HTTP by default
 ```
 
 ## How to use your own configuration
@@ -47,6 +48,10 @@ This repository is public and read-only for demo purposes. Once you verify that 
 
 For a full reference on configuration schemas and deployment rules, check out the **[Connecting Your Own Project (Server Configuration)](https://github.com/uservseatb/apinfra#connecting-your-own-project-server-configuration)** section in the core apinfra repository.
 
+## Branches
+
+* **`since-v0.6.0`** — Demo configuration for `apinfra` releases `v0.6.0` and newer.
+* **`main`** — Demo configuration for `apinfra` releases prior to `v0.6.0`.
 
 ## License
 
